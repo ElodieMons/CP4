@@ -7,10 +7,10 @@ import itemRepository from "./itemRepository";
 const browse: RequestHandler = async (req, res, next) => {
   try {
     // Fetch all items
-    const items = await itemRepository.readAll();
+    const product = await itemRepository.readAll();
 
     // Respond with the items in JSON format
-    res.json(items);
+    res.json(product);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -21,15 +21,15 @@ const browse: RequestHandler = async (req, res, next) => {
 const read: RequestHandler = async (req, res, next) => {
   try {
     // Fetch a specific item based on the provided ID
-    const itemId = Number(req.params.id);
-    const item = await itemRepository.read(itemId);
+    const productId = Number(req.params.id);
+    const product = await itemRepository.read(productId);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
-    if (item == null) {
+    if (product == null) {
       res.sendStatus(404);
     } else {
-      res.json(item);
+      res.json(product);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -41,13 +41,16 @@ const read: RequestHandler = async (req, res, next) => {
 const add: RequestHandler = async (req, res, next) => {
   try {
     // Extract the item data from the request body
-    const newItem = {
-      title: req.body.title,
-      user_id: req.body.user_id,
+    const newProduct = {
+      name: req.body.name,
+      description: req.body.description,
+      img: req.body.img,
+      price: req.body.price,
+      quantity: req.body.quantity,
     };
 
     // Create the item
-    const insertId = await itemRepository.create(newItem);
+    const insertId = await itemRepository.create(newProduct);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });

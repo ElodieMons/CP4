@@ -2,20 +2,29 @@ import databaseClient from "../../../database/client";
 
 import type { Result, Rows } from "../../../database/client";
 
-type Item = {
+type Product = {
   id: number;
-  title: string;
-  user_id: number;
+  name: string;
+  description: string;
+  img: string;
+  price: number;
+  quantity: number;
 };
 
 class ItemRepository {
   // The C of CRUD - Create operation
 
-  async create(item: Omit<Item, "id">) {
+  async create(product: Omit<Product, "id">) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await databaseClient.query<Result>(
-      "insert into item (title, user_id) values (?, ?)",
-      [item.title, item.user_id],
+      "insert into product (name, description, img, price, quantity) values (?, ?, ?, ?, ?)",
+      [
+        product.name,
+        product.description,
+        product.img,
+        product.price,
+        product.quantity,
+      ],
     );
 
     // Return the ID of the newly inserted item
@@ -27,20 +36,20 @@ class ItemRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await databaseClient.query<Rows>(
-      "select * from item where id = ?",
+      "select * from product where id = ?",
       [id],
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0] as Item;
+    return rows[0] as Product;
   }
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await databaseClient.query<Rows>("select * from item");
+    const [rows] = await databaseClient.query<Rows>("select * from product");
 
     // Return the array of items
-    return rows as Item[];
+    return rows as Product[];
   }
 
   // The U of CRUD - Update operation
