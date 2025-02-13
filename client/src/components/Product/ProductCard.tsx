@@ -1,5 +1,6 @@
 import { ShoppingBag } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCard } from "../../contexts/CardContext";
 import type { Product } from "../../types/product";
 import ProductImage from "./ProductImage";
 import ProductPrice from "./ProductPrice";
@@ -10,6 +11,8 @@ interface ProductCardProps {
 }
 
 function ProductCard({ product, isBuy }: ProductCardProps) {
+  const { addShoppingCards } = useCard();
+
   return (
     <section className="bg-white rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
       <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -33,6 +36,7 @@ function ProductCard({ product, isBuy }: ProductCardProps) {
               "w-full bg-pink-200 text-black py-3 px-6 rounded-lg hover:bg-pink-300 transition-colors flex items-center justify-center gap-2 mt-10"
             }
             type="button"
+            onClick={() => addShoppingCards(product)}
           >
             <ShoppingBag className="w-5 h-5" />
             Acheter

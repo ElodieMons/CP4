@@ -11,7 +11,7 @@ function OneProduct() {
   return (
     <section>
       <h1>{product.name}</h1>
-      <ProductCard product={product} />
+      <ProductCard product={product} isBuy />
     </section>
   );
 }

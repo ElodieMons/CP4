@@ -6,8 +6,8 @@ function Layout() {
   return (
     <main>
       <Navbar />
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
-        <section className="mx-auto ">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section className="mx-auto">
           <Outlet />
         </section>
       </section>
