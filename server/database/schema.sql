@@ -1,5 +1,5 @@
-create table user (
-  id int unsigned primary key auto_increment NOT NULL,
+CREATE table user (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   firstname varchar(255),
   lastname varchar(255),
   email varchar(255) NOT NULL unique,
@@ -8,8 +8,8 @@ create table user (
 
 
 
-create table products (
-  id int unsigned primary key auto_increment NOT NULL,
+CREATE table product (
+  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name varchar(255) NOT NULL,
   description varchar(255) NOT NULL,
   img varchar(255) NOT NULL,
@@ -17,10 +17,18 @@ create table products (
   quantity DECIMAL(5) DEFAULT 1
 );
 
-insert into user (firstname, lastname, email, password)
+CREATE table user_product (
+  user_id INT UNSIGNED,
+  product_id INT UNSIGNED,
+  PRIMARY KEY (user_id, product_id),
+  FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
+INSERT INTO user (firstname, lastname, email, password)
 VALUES ("john", "doe", "jdoe@mail.com", "123456");
 
-INSERT INTO products (name, description, img, price, quantity)
+INSERT INTO product (name, description, img, price, quantity)
 VALUES("Bouquet de tulipes", "Brassée de 20 tulipes multicolores", "./server/public/assets/images/bouquet-de-tulipes.jpg", 20, 1),
 ("Bouquet de tulipes", "Brassée de 40 tulipes multicolores", "./server/public/assets/images/bouquet-de-tulipes2.jpg", 40, 1),
 ("Bouquet du fleuriste blanc", "Bouquet blanc unique, réalisé selon les disponibilités par nos artisans fleuristes", "./server/public/assets/images/bouquet-fleuriste-blanc.jpg", 35, 1),

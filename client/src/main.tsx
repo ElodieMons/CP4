@@ -8,6 +8,7 @@ import "./index.css";
 
 // Import the main app component
 import App from "./App";
+import Product from "./components/Products";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/", // The root path
         element: <App />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
     ],
   },

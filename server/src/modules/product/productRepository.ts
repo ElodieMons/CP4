@@ -11,7 +11,7 @@ type Product = {
   quantity: number;
 };
 
-class ItemRepository {
+class ProductRepository {
   // The C of CRUD - Create operation
 
   async create(product: Omit<Product, "id">) {
@@ -67,4 +67,4 @@ class ItemRepository {
   // }
 }
 
-export default new ItemRepository();
+export default new ProductRepository();
