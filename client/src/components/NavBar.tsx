@@ -15,7 +15,7 @@ function Navbar() {
         </Link>
         <Link
           to="#"
-          className="relative inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base m-2.5 "
+          className="relative inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-pink-300 rounded text-base m-2.5 "
           type="button"
         >
           Panier
@@ -23,7 +23,7 @@ function Navbar() {
             <svg
               viewBox="0 0 6 6"
               aria-hidden="true"
-              className="size-1.5 fill-indigo-500"
+              className="size-2 fill-pink-400"
             >
               <circle r={3} cx={3} cy={3} />
             </svg>
