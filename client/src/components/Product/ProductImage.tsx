@@ -1,14 +1,14 @@
-interface ProductImageProps {
+interface ProductImg {
   img: string;
   name: string;
 }
-function ProductImage({ img, name }: ProductImageProps) {
+
+function ProductImage({ img, name }: ProductImg) {
   return (
     <section className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
       <img
-        src={img}
+        src={`${import.meta.env.VITE_API_URL}/assets/images/${img}`}
         alt={name}
-        className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
       />
     </section>
   );

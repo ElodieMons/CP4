@@ -40,6 +40,10 @@ class ProductRepository {
       [id],
     );
 
+    if (rows.length === 0) {
+      throw new Error(`Product with ID ${id} not found`);
+    }
+
     // Return the first row of the result, which represents the item
     return rows[0] as Product;
   }

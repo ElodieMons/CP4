@@ -8,7 +8,7 @@ import "./index.css";
 
 // Import the main app component
 import App from "./App";
-import Product from "./components/Products";
+import OneProduct from "./components/OneProduct";
 import Layout from "./pages/Layout";
 
 // Import additional components for new routes
@@ -31,7 +31,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/product/:id",
-        element: <Product />,
+        element: <OneProduct />,
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `${import.meta.env.VITE_API_URL}/api/product/${params.id}`,
+          );
+          if (!res) {
+            throw new Response("Produit introuvable", { status: 400 });
+          }
+          return await res.json();
+        },
       },
     ],
   },
