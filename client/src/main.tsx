@@ -9,6 +9,7 @@ import "./index.css";
 // Import the main app component
 import App from "./App";
 import OneProduct from "./components/OneProduct";
+import Card from "./components/Product/Card";
 import { CardProvider } from "./contexts/CardContext";
 import Layout from "./pages/Layout";
 // Import additional components for new routes
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           }
           return await res.json();
         },
+      },
+      {
+        path: "/card", // The root path
+        element: <Card />,
       },
     ],
   },

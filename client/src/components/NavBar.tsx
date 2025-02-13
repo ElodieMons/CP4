@@ -1,8 +1,10 @@
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/planet-earth_5699945.png";
+import { useCard } from "../contexts/CardContext";
 
 function Navbar() {
+  const { nbCard } = useCard();
   return (
     <header className="text-gray-600 body-font bg-pink-200 p-3">
       <div className="container mx-auto  flex flex-wrap p-5 flex-col md:flex-row justify-between ">
@@ -14,7 +16,7 @@ function Navbar() {
           <span className="ml-8 text-4xl">Florica</span>
         </Link>
         <Link
-          to="#"
+          to="/card"
           className="relative inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-pink-300 rounded text-base m-2.5 "
           type="button"
         >
@@ -27,6 +29,7 @@ function Navbar() {
             >
               <circle r={3} cx={3} cy={3} />
             </svg>
+            {nbCard}
           </span>
           <ShoppingCart className="w-5 h-5 ml-2" />
         </Link>

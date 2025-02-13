@@ -10,6 +10,8 @@ interface ProductCardProps {
   isBuy?: boolean;
 }
 
+// Problème: le bouton acheter ne s'affiche plus, il reste sur Voir le produit => Vérifier le contexte !!
+
 function ProductCard({ product, isBuy }: ProductCardProps) {
   const { addShoppingCards } = useCard();
 
