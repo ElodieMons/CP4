@@ -10,18 +10,18 @@ interface ProductCardProps {
   isBuy?: boolean;
 }
 
-// Problème: le bouton acheter ne s'affiche plus, il reste sur Voir le produit => Vérifier le contexte !!
+// Problème: le bouton voir le produit ne s'affiche plus, la condition ne se fait pas, c'est le bouton acheter qui s'affiche directement !!
 
 function ProductCard({ product, isBuy }: ProductCardProps) {
   const { addShoppingCards } = useCard();
 
   return (
-    <section className="bg-white rounded-2xl shadow-lg p-6 max-w-2xl mx-auto">
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section className="bg-white rounded-2xl shadow-2xl p-5 max-w-2xl mx-auto">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <ProductImage img={product.img} name={product.name} />
 
         <section className="space-y-4">
-          <h1 className="text-2xl font-bold text-gray-900 text-center mt-15 ">
+          <h1 className="text-2xl font-semibold text-gray-900 text-center mt-15 ">
             {product.name}
           </h1>
           <p className="text-gray-600 leading-relaxed text-center mt-12">

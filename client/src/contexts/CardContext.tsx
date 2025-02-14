@@ -16,8 +16,7 @@ type ChildrenType = {
 const CardContext = createContext<CardContextType | null>(null);
 
 //
-// problème calcul total somme  => totalPrice (dans le context et appelé dans Card.tsx)
-// Bug en remove, le produit supprimé affiche NaN => newTotalPrice
+
 // problème dans ProductCard.tsx avec le bouton voir le produit/acheter
 //
 

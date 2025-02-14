@@ -2,7 +2,7 @@ import logo from "../assets/images/planet-earth_5699945.png";
 
 function Footer() {
   return (
-    <footer className="text-gray-600 body-font mt-auto">
+    <footer className="text-gray-600 body-font mt-17 bg-pink-200">
       <section className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <section className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <img src={logo} alt="logo" className="w-14 h-14" />

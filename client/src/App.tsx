@@ -21,12 +21,21 @@ function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-semibold text-gray-900 flex item center">
-        Nos compositions
-      </h1>
-      <section className="grid grid-cols-2 gap-8 mt-6">
+      <section className="flex flex-col items-center">
+        <h1 className="text-4xl font-semibold text-pink-500  m-15 flex text-center">
+          Click And Collect
+        </h1>
+        <h2 className="text-2xl font-semibold text-gray-900 text-center">
+          Retrait possible sous 24h dans notre boutique
+        </h2>
+        <p className="text-l text-gray-900 text-center mt-5">
+          Place Las lagunas, 90015, Florence
+        </p>
+      </section>
+
+      <section className="grid grid-cols-2 gap-20 mt-15">
         {products.map((product) => (
-          <ProductCard product={product} key={product.id} isBuy />
+          <ProductCard product={product} key={product.id} isBuy={false} />
         ))}
       </section>
     </>
