@@ -32,7 +32,7 @@ function ProductCard({ product, isBuy }: ProductCardProps) {
         <ProductPrice price={product.price} />
       </section>
       <section>
-        {!isBuy ? (
+        {isBuy ? (
           <button
             className={
               "w-full bg-pink-200 text-black py-3 px-6 rounded-lg hover:bg-pink-300 transition-colors flex items-center justify-center gap-2 mt-10"

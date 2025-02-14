@@ -23,20 +23,19 @@ const CardContext = createContext<CardContextType | null>(null);
 
 export function CardProvider({ children }: ChildrenType) {
   const [cards, setCards] = useState<Product[]>([]);
-  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const addShoppingCards = (product: Product) => {
-    setCards([...cards, product]);
-    const newTotalPrice = totalPrice + product.price;
-    setTotalPrice(newTotalPrice);
+    setCards((prevCards) => [...prevCards, product]);
   };
 
   const removeCard = (id: string) => {
-    setCards(cards.filter((product) => product.id !== id));
-    const newTotalPrice =
-      totalPrice - (cards.find((product) => product.id === id)?.price ?? 0);
-    setTotalPrice(newTotalPrice);
+    setCards((prevCards) => prevCards.filter((product) => product.id !== id));
   };
+
+  const totalPrice = cards.reduce(
+    (sum, product) => sum + Number(product.price),
+    0,
+  );
 
   return (
     <CardContext.Provider
