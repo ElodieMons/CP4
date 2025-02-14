@@ -21,7 +21,7 @@ function ProductCard({ product, isBuy }: ProductCardProps) {
         <ProductImage img={product.img} name={product.name} />
 
         <section className="space-y-4">
-          <h1 className="text-2xl font-semibold text-gray-900 text-center mt-15 ">
+          <h1 className="text-2xl font-semibold text-gray-900 text-center mt-10 ">
             {product.name}
           </h1>
           <p className="text-gray-600 leading-relaxed text-center mt-12">

@@ -5,10 +5,11 @@ interface ProductImg {
 
 function ProductImage({ img, name }: ProductImg) {
   return (
-    <section className="relative aspect-square overflow-hidden rounded-xl bg-gray-100">
+    <section className="">
       <img
         src={`${import.meta.env.VITE_API_URL}/assets/images/${img}`}
         alt={name}
+        className=" overflow-hidden rounded-xl w-xs max-h-xl mt-1"
       />
     </section>
   );

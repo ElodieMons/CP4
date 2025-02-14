@@ -9,7 +9,7 @@ function OneProduct() {
     return <p>Chargement du produit...</p>;
   }
   return (
-    <section className="mt-20 mb-40">
+    <section className="mt-33 mb-62">
       <ProductCard product={product} isBuy />
     </section>
   );
